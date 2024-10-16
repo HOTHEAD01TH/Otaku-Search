@@ -36,35 +36,47 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6 relative flex flex-col items-center justify-center">
-      <h1 className="text-4xl text-center font-bold mb-8">Otaku Search</h1>
+    <div
+      className="min-h-screen p-6 relative flex flex-col items-center justify-center"
+      style={{
+        backgroundImage: 'url("../public/anime.png")', // Replace with your image path
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      {/* Container with black background */}
+      <div className="bg-black bg-opacity-80 p-8 rounded-lg shadow-lg">
+        <h1 className="text-4xl text-center font-bold mb-8 text-white">Otaku Search</h1>
 
-      {/* Centered content when no image is submitted */}
-      {!imageSubmitted ? (
-        <div className="flex flex-col items-center">
-          <ImageUpload onImageUpload={handleImageUpload} />
-        </div>
-      ) : (
-        <div className="flex flex-col items-center">
-          <ImageUpload onImageUpload={handleImageUpload} />
-          {loading && <p className="text-center">Searching for anime... 🧑‍💻</p>}
-          {animeData && <AnimeResult data={animeData} />}
-        </div>
-      )}
+        {/* Centered content when no image is submitted */}
+        {!imageSubmitted ? (
+          <div className="flex flex-col items-center">
+            <ImageUpload onImageUpload={handleImageUpload} />
+          </div>
+        ) : (
+          <div className="flex flex-col items-center">
+            <ImageUpload onImageUpload={handleImageUpload} />
+            {loading && <p className="text-center text-white">Searching for anime... 🧑‍💻</p>}
+            {animeData && <AnimeResult data={animeData} />}
+          </div>
+        )}
+      </div>
 
       {/* Made by section at the bottom right */}
-      <div className="absolute bottom-4 right-4 text-center">
-        <p>
-          Made by{' '}
-          <a
-            href="https://twitter.com/HOTHEAD01TH"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 underline"
-          >
-            @HOTHEAD
-          </a>
-        </p>
+      <div className="absolute bottom-4 right-4 text-center transition-opacity duration-500 ease-in-out opacity-100 animate-fade-in">
+        <div className="bg-black bg-opacity-80 p-2 rounded-lg shadow-lg hover:bg-opacity-90 transition duration-300">
+          <p className="text-white">
+            Made by{' '}
+            <a
+              href="https://twitter.com/HOTHEAD01TH"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 underline"
+            >
+              @HOTHEAD01TH
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );

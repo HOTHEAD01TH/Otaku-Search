@@ -1,5 +1,5 @@
 export default function AnimeResult({ data }) {
-  console.log(data); // Debugging line to inspect full data response
+  
 
   return (
     <div className="mt-8 max-w-5xl mx-auto">
