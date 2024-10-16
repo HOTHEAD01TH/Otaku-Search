@@ -1,25 +1,23 @@
 export default function AnimeResult({ data }) {
-  const topResults = data.slice(0, 3); // Get top 3 results
-  console.log(topResults); // Debugging line
+  console.log(data); // Debugging line to inspect full data response
 
   return (
     <div className="mt-8 max-w-5xl mx-auto">
-      <h2 className="text-3xl font-semibold text-center mb-8">Top Anime Results</h2>
+      <h2 className="text-3xl font-semibold text-center mb-8">Anime Results</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {topResults.map((anime, index) => (
+        {data.map((anime, index) => (
           <div key={index} className="bg-white shadow-lg rounded-lg overflow-hidden">
             <div className="relative">
               {/* Image preview */}
               <img
-                src={anime.image}
-                alt={`Scene from ${anime.anilist}`}
-                className="w-full h-48 object-cover"
-                onError={(e) => {
-                  e.target.onerror = null; // prevents looping
-                  e.target.src = '../public/placeholder.png'; // replace with your placeholder image
-                }}
-              />
+  src={anime.image} // This should be the correct property for the image
+  alt={`Scene from ${anime.anilist}`} // This should be the correct property for the title
+  className="w-full h-48 object-cover"
+  onError={(e) => {
+    e.target.src = 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png'; // Provide a fallback image path
+  }}
+/>
               <span className="absolute top-2 left-2 bg-purple-500 text-white px-2 py-1 text-sm font-semibold rounded">
                 Episode: {anime.episode}
               </span>
@@ -49,6 +47,8 @@ export default function AnimeResult({ data }) {
           </div>
         ))}
       </div>
+      
     </div>
+    
   );
 }
