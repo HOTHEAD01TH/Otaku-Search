@@ -9,15 +9,14 @@ export default function AnimeResult({ data }) {
         {data.map((anime, index) => (
           <div key={index} className="bg-white shadow-lg rounded-lg overflow-hidden">
             <div className="relative">
-              {/* Image preview */}
-              <img
-  src={anime.image} // This should be the correct property for the image
-  alt={`Scene from ${anime.anilist}`} // This should be the correct property for the title
-  className="w-full h-48 object-cover"
-  onError={(e) => {
-    e.target.src = 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png'; // Provide a fallback image path
-  }}
-/>
+              {/* Video preview */}
+              {anime.video && (
+                <video
+                  controls
+                  src={`${anime.video}&size=l`}  // Large video preview
+                  className="w-full h-48 object-cover"
+                />
+              )}
               <span className="absolute top-2 left-2 bg-purple-500 text-white px-2 py-1 text-sm font-semibold rounded">
                 Episode: {anime.episode}
               </span>
@@ -34,21 +33,10 @@ export default function AnimeResult({ data }) {
               <p className="text-sm text-gray-600">
                 <strong>Similarity:</strong> {(anime.similarity * 100).toFixed(2)}%
               </p>
-
-              {/* Video preview */}
-              {anime.video && (
-                <video
-                  controls
-                  src={`${anime.video}&size=l`}  // Large video preview
-                  className="w-full h-40 mt-4 rounded-md"
-                />
-              )}
             </div>
           </div>
         ))}
       </div>
-      
     </div>
-    
   );
 }
