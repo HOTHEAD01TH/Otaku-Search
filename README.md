@@ -1,38 +1,77 @@
-# Otaku-Search
-find any anime with just a scene or photo with this app!
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Otaku Search
 
-## Getting Started
+## Overview
+**Otaku Search** is a Next.js application that allows users to upload an image, analyze it, and retrieve anime details. By leveraging powerful image recognition APIs, it identifies the anime, episode number, timestamp, and other related details directly from the uploaded image.
 
-First, run the development server:
+## Table of Contents
+- Features
+- Tech Stack
+- Installation
+- Configuration
+- Usage
+- API Documentation
+- Contributing
+- License
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
+- **Anime Identification**: Finds anime details based on uploaded images.
+- **Detailed Results**: Displays anime name, timestamp, episode number, and other metadata.
+- **Next.js Optimization**: Fast, SEO-friendly, and optimized for performance.
+- **User-Friendly Interface**: Simple interface to upload images and view results.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
+- **Next.js**: React-based framework for server-side rendering and static site generation.
+- **Image Recognition API**: API integration for anime image analysis (e.g., trace.moe API or custom solution).
+- **React**: JavaScript library for building user interfaces.
+- **Tailwind CSS** (optional): For styling components and achieving responsive design.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/your-username/otaku-search.git
+    cd otaku-search
+    ```
 
-## Learn More
+2. **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Run the development server**:
+    ```bash
+    npm run dev
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Access the app** at `http://localhost:3000`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Configuration
+Create a `.env.local` file in the root directory and add the necessary environment variables for API keys or configurations, like:
 
-## Deploy on Vercel
+    NEXT_PUBLIC_API_KEY=your-api-key
+    NEXT_PUBLIC_API_BASE_URL=https://anime-api.com
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Upload an Image**: Use the upload button to select an image from your device.
+2. **Get Anime Details**: Once the image is processed, Otaku Search will return details such as the anime title, episode number, and timestamp.
+3. **View Results**: The results, including anime metadata, will be displayed on the results page.
+
+## API Documentation
+
+| Endpoint             | Method | Description                    |
+|----------------------|--------|--------------------------------|
+| `/api/analyze`       | POST   | Uploads image for analysis     |
+| `/api/anime-details` | GET    | Fetches anime metadata         |
+
+## Contributing
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -m 'Add new feature'`
+4. Push to the branch: `git push origin feature-name`
+5. Submit a pull request
+
+## License
+This project is licensed under the MIT License.
